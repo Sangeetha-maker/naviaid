@@ -1,0 +1,32 @@
+{
+  "total_synced": 1,
+  "sources": {
+    "jsearch": {
+      "synced": 1,
+      "errors": []
+    },
+    "adzuna": {
+      "synced": 0,
+      "error": "ADZUNA credentials not set"
+    },
+    "myscheme": {
+      "synced": 0,
+      "errors": [
+        "MyScheme Tamil Nadu: HTTP 404",
+        "MyScheme All India: HTTP 404"
+      ]
+    },
+    "rss": {
+      "synced": 0,
+      "errors": [
+        "Employment News: [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1018)"
+      ]
+    }
+  },
+  "errors": [
+    "MyScheme Tamil Nadu: HTTP 404",
+    "MyScheme All India: HTTP 404",
+    "Employment News: [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1018)"
+  ],
+  "timestamp": "2026-03-30T02:50:43.501032+00:00"
+}

@@ -1,0 +1,17 @@
+NAVIAID API SYNC RESULTS
+==================================================
+Total new items synced: 1
+Timestamp: 2026-03-30T02:50:43.501032+00:00
+
+  [JSEARCH     ]  synced=1  errors=0
+  [ADZUNA      ]  synced=0  errors=0
+  [MYSCHEME    ]  synced=0  errors=2
+               - MyScheme Tamil Nadu: HTTP 404
+               - MyScheme All India: HTTP 404
+  [RSS         ]  synced=0  errors=1
+               - Employment News: [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ss
+
+Combined errors (3):
+  - MyScheme Tamil Nadu: HTTP 404
+  - MyScheme All India: HTTP 404
+  - Employment News: [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ss

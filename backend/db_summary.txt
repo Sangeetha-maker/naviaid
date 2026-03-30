@@ -1,0 +1,84 @@
+Total opportunities in DB: 141
+
+By Category:
+  health          : 14
+  job             : 75
+  ngo             : 15
+  scholarship     : 25
+  upskill         : 12
+
+By Source:
+  AICTE                          : 2
+  BC/MBC Welfare                 : 1
+  DPIIT                          : 1
+  DRDA TN                        : 1
+  DST India                      : 1
+  JSearch / Google Jobs          : 66
+  KSB                            : 1
+  KVIC                           : 1
+  MHRD/NCERT                     : 1
+  MSDE                           : 2
+  MSJE                           : 1
+  MSME Ministry                  : 1
+  MUDRA/RBI                      : 1
+  Ministry of Education          : 1
+  Ministry of Finance            : 1
+  Ministry of Minority Affairs   : 1
+  MoHFW                          : 2
+  MoHFW/NTEP                     : 1
+  MoLE                           : 1
+  MoRD                           : 3
+  MoRD/NSAP                      : 1
+  MoSJE                          : 1
+  NABARD/RSETI                   : 1
+  NACO                           : 1
+  NHA                            : 1
+  NHM                            : 2
+  NIELIT/PMGDISHA                : 1
+  SDF Foundation                 : 1
+  StartupTN                      : 1
+  TAHDCO                         : 1
+  TANGEDCO                       : 1
+  TN Adi Dravidar Welfare        : 2
+  TN BC/MBC Welfare              : 1
+  TN Civil Supplies              : 1
+  TN Education Dept              : 1
+  TN Fisheries                   : 1
+  TN Fisheries Dept              : 1
+  TN Govt                        : 3
+  TN Handloom Dept               : 1
+  TN Health & Family Welfare     : 1
+  TN Health Dept                 : 2
+  TN Higher Education            : 2
+  TN School Education            : 2
+  TN Social Defence              : 1
+  TN Social Welfare              : 1
+  TN Sports Development Authorit : 1
+  TN Tribal Welfare              : 1
+  TN Welfare Dept                : 1
+  TN Youth Welfare               : 1
+  TN e-Grantz                    : 1
+  TNAU                           : 1
+  TNHB                           : 1
+  TNMSC / NHM                    : 1
+  TNPSC                          : 1
+  TNSDC                          : 3
+  TNSLA                          : 1
+  TNSRLM                         : 1
+  Tamil Nadu Govt                : 1
+  UGC                            : 1
+  WCD Ministry                   : 1
+  WCD/ICDS                       : 1
+  Welfare Dept TN                : 1
+
+Most Recent 10 entries:
+  [job       ] Lead Material Flow and Packaging Engineer ? Ford Motor
+  [job       ] Financial Officer in Manikonda, Ananthapuram, Kottayam, Nashik, Ameerp
+  [job       ] Financial Officer in Vellore, Nagpur, Nashik, Secunderabad, Kasaragod,
+  [job       ] Junior Academic Consultant (Freshers) in Nellore, Kukatpalle, Vellore,
+  [job       ] TNPSC JTO Junior Engineer Recruitment 2025 in Mahasamund, Chattisgarh 
+  [job       ] TNPSC Assistant Engineer Recruitment 2026 in Sundergarh, Odisha 2026 ?
+  [job       ] Deputy Manager - Global Customer Support ? Schneider Electric
+  [job       ] Government Job :- NIMHANS Data Entry Operator (DEO) Recruitment  in am
+  [job       ] RPSC Deputy Commandant Recruitment  in trichy, tamil nadu  - 2026 ? Ra
+  [job       ] Government Job :- NIMHANS Data Entry Operator (DEO) Recruitment  in co
