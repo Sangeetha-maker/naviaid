@@ -5,7 +5,7 @@ const BASE_URL = import.meta.env.VITE_API_URL ?? 'http://localhost:8000'
 
 export const api = axios.create({
   baseURL: BASE_URL,
-  timeout: 15000,
+  timeout: 60000, // Increased to 60s for Render free tier AI embedding generation
 })
 
 // Attach JWT on every request
