@@ -11,8 +11,8 @@ export interface UseVoiceReturn {
 
 declare global {
   interface Window {
-    SpeechRecognition: typeof SpeechRecognition
-    webkitSpeechRecognition: typeof SpeechRecognition
+    SpeechRecognition: any
+    webkitSpeechRecognition: any
   }
 }
 
@@ -20,7 +20,7 @@ export function useVoice(lang = 'en-IN'): UseVoiceReturn {
   const [isListening, setIsListening] = useState(false)
   const [transcript, setTranscript] = useState('')
   const [error, setError] = useState<string | null>(null)
-  const recogRef = useRef<SpeechRecognition | null>(null)
+  const recogRef = useRef<any>(null)
 
   const supported =
     typeof window !== 'undefined' &&
@@ -42,13 +42,13 @@ export function useVoice(lang = 'en-IN'): UseVoiceReturn {
       setError(null)
       setTranscript('')
     }
-    recog.onresult = (e) => {
-      const text = Array.from(e.results)
+    recog.onresult = (e: any) => {
+      const text = Array.from<any>(e.results)
         .map((r) => r[0].transcript)
         .join('')
       setTranscript(text)
     }
-    recog.onerror = (e) => {
+    recog.onerror = (e: any) => {
       setError(e.error)
       setIsListening(false)
     }
