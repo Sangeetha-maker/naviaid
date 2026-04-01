@@ -1,0 +1,32 @@
+﻿2026-04-01 20:16:05,764 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2026-04-01 20:16:05,772 INFO sqlalchemy.engine.Engine SELECT users.id, users.email, users.hashed_password, users.name, users.role, users.google_id, users.is_active, users.created_at, users.updated_at 
+FROM users
+ LIMIT ? OFFSET ?
+2026-04-01 20:16:05,772 INFO sqlalchemy.engine.Engine [generated in 0.00020s] (1, 0)
+Testing recommendations for user: test@test.in
+2026-04-01 20:16:05,775 INFO sqlalchemy.engine.Engine SELECT user_profiles.id, user_profiles.user_id, user_profiles.age, user_profiles.gender, user_profiles.district, user_profiles.state, user_profiles.pincode, user_profiles.lat, user_profiles.lon, user_profiles.education_level, user_profiles.stream, user_profiles.institution, user_profiles.annual_income, user_profiles.caste_category, user_profiles.is_differently_abled, user_profiles.skills, user_profiles.interests, user_profiles.embedding, user_profiles.draft_step, user_profiles.onboarding_complete, user_profiles.created_at, user_profiles.updated_at 
+FROM user_profiles 
+WHERE user_profiles.user_id = ?
+2026-04-01 20:16:05,775 INFO sqlalchemy.engine.Engine [generated in 0.00013s] ('b778aa27-b1b2-4e82-9e9d-fc88330de4f0',)
+2026-04-01 20:16:05,778 INFO sqlalchemy.engine.Engine SELECT count(*) AS count_1 
+FROM (SELECT opportunities.id AS id, opportunities.title AS title, opportunities.title_ta AS title_ta, opportunities.description AS description, opportunities.description_ta AS description_ta, opportunities.category AS category, opportunities.subcategory AS subcategory, opportunities.source AS source, opportunities.source_url AS source_url, opportunities.apply_url AS apply_url, opportunities.eligibility AS eligibility, opportunities.documents_required AS documents_required, opportunities.benefits AS benefits, opportunities.amount AS amount, opportunities.deadline AS deadline, opportunities.is_recurring AS is_recurring, opportunities.locations AS locations, opportunities.is_pan_india AS is_pan_india, opportunities.trust_score AS trust_score, opportunities.is_active AS is_active, opportunities.embedding AS embedding, opportunities.created_at AS created_at, opportunities.updated_at AS updated_at 
+FROM opportunities 
+WHERE opportunities.is_active = 1) AS anon_1
+2026-04-01 20:16:05,778 INFO sqlalchemy.engine.Engine [generated in 0.00011s] ()
+2026-04-01 20:16:05,780 INFO sqlalchemy.engine.Engine SELECT opportunities.id, opportunities.title, opportunities.title_ta, opportunities.description, opportunities.description_ta, opportunities.category, opportunities.subcategory, opportunities.source, opportunities.source_url, opportunities.apply_url, opportunities.eligibility, opportunities.documents_required, opportunities.benefits, opportunities.amount, opportunities.deadline, opportunities.is_recurring, opportunities.locations, opportunities.is_pan_india, opportunities.trust_score, opportunities.is_active, opportunities.embedding, opportunities.created_at, opportunities.updated_at 
+FROM opportunities 
+WHERE opportunities.is_active = 1 ORDER BY opportunities.trust_score DESC
+ LIMIT ? OFFSET ?
+2026-04-01 20:16:05,780 INFO sqlalchemy.engine.Engine [generated in 0.00011s] (500, 0)
+Total recommendations returned: 10
+1. NSP Central Sector Scholarship (Score: 69.9)
+2. SECC MGNREGS Job Card (Score: 69.9)
+3. Ayushman Bharat PM-JAY (Score: 69.9)
+4. Indira Gandhi National Old Age Pension (Score: 69.9)
+5. NTEP û TB Free India Programme (Score: 69.9)
+6. National AIDS Control Programme (Score: 69.9)
+7. Sukanya Samriddhi Yojana (Score: 69.9)
+8. Anganwadi Services (ICDS) (Score: 69.9)
+9. Post-Matric Scholarship for SC/ST (Score: 69.8)
+10. Janani Suraksha Yojana (Score: 69.8)
+2026-04-01 20:16:05,797 INFO sqlalchemy.engine.Engine ROLLBACK
