@@ -47,7 +47,7 @@ def _parse_nl_query(q: str) -> dict:
 
 @router.get("/", response_model=SearchResponse)
 async def search_opportunities(
-    q: str = Query(..., min_length=1, max_length=500),
+    q: str | None = Query(None, max_length=500),
     category: str | None = None,
     limit: int = Query(10, ge=1, le=50),
     offset: int = Query(0, ge=0),
@@ -55,8 +55,15 @@ async def search_opportunities(
 ):
     """
     Hybrid search: full-text BM25 via PostgreSQL tsvector + vector cosine fallback.
-    Parses NL queries like "Chennai girl scholarship under 2L income".
+    If no query is provided, it returns recent/popular opportunities.
     """
+    if not q:
+        total, items = await crud.list_opportunities(db, limit=limit, offset=offset, category=category)
+        return SearchResponse(
+            total=total,
+            query="",
+            items=[OpportunityOut.model_validate(o) for o in items],
+        )
     hints = _parse_nl_query(q)
     effective_category = category or hints.get("category")
 

@@ -257,6 +257,9 @@ CATEGORY_MAP = {
     "Skills & Employment": "job",
     "Business & Entrepreneurship": "upskill",
     "Women and Child": "government",
+    "Housing & Shelter": "housing",
+    "Banking,Financial Services and Insurance": "loan",
+    "Agriculture,Rural & Environment": "agriculture",
 }
 
 
