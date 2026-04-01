@@ -17,6 +17,8 @@ venv.bak/
 
 # SQLite
 *.db
+!naviaid.db
+!backend/naviaid.db
 *.sqlite3
 
 # OS generated files

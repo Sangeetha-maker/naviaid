@@ -16,17 +16,19 @@ security = HTTPBearer()
 
 @router.post("/register", response_model=schemas.TokenResponse, status_code=201)
 async def register(data: schemas.UserRegister, db: AsyncSession = Depends(get_db)):
-    existing = await crud.get_user_by_email(db, data.email)
+    email_lower = data.email.lower()
+    existing = await crud.get_user_by_email(db, email_lower)
     if existing:
         raise HTTPException(status_code=400, detail="Email already registered")
-    user = await crud.create_user(db, data.email, data.password, data.name)
+    user = await crud.create_user(db, email_lower, data.password, data.name)
     token = create_access_token({"sub": user.id, "role": user.role})
     return schemas.TokenResponse(access_token=token, user_id=user.id, role=user.role)
 
 
 @router.post("/login", response_model=schemas.TokenResponse)
 async def login(data: schemas.UserLogin, db: AsyncSession = Depends(get_db)):
-    user = await crud.get_user_by_email(db, data.email)
+    email_lower = data.email.lower()
+    user = await crud.get_user_by_email(db, email_lower)
     if not user or not user.hashed_password:
         raise HTTPException(status_code=401, detail="Invalid credentials")
     if not verify_password(data.password, user.hashed_password):
