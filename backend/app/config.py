@@ -7,7 +7,7 @@ from functools import lru_cache
 
 class Settings(BaseSettings):
     # Database
-    DATABASE_URL: str = "postgresql+asyncpg://naviaid:naviaid_secret@localhost:5432/naviaid"
+    DATABASE_URL: str = "postgresql+asyncpg://postgres:R7%26.V6Jeg9c96h4@db.oheflrxwqusnwmpglmqg.supabase.co:5432/postgres"
 
     # Redis
     REDIS_URL: str = "redis://localhost:6379/0"
