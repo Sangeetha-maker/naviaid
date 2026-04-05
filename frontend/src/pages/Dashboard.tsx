@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react'
 import { useTranslation } from 'react-i18next'
 import { useUserStore } from '../stores/userStore'
 import { useRecommendations } from '../hooks/useRecommendations'
-import { fetchSaved, fetchRecent, triggerSync } from '../lib/api'
+import { fetchSaved, fetchApplied, fetchRecent, triggerSync } from '../lib/api'
 import RecoCard from '../components/RecoCard'
 import type { Opportunity } from '../lib/api'
 import { ArrowPathIcon, SparklesIcon } from '@heroicons/react/24/outline'
@@ -15,6 +15,8 @@ export default function Dashboard() {
   const { data: recos, loading: recoLoading, error: recoError, refetch } = useRecommendations()
   const [savedOpps, setSavedOpps] = useState<Opportunity[]>([])
   const [savedIds, setSavedIds] = useState<Set<string>>(new Set())
+  const [appliedOpps, setAppliedOpps] = useState<Opportunity[]>([])
+  const [appliedIds, setAppliedIds] = useState<Set<string>>(new Set())
   const [recentOpps, setRecentOpps] = useState<Opportunity[]>([])
   const [savedLoading, setSavedLoading] = useState(false)
   const [recentLoading, setRecentLoading] = useState(false)
@@ -23,16 +25,26 @@ export default function Dashboard() {
   const [syncResult, setSyncResult] = useState<{ total_synced: number } | null>(null)
   const isAdmin = user?.role === 'admin'
 
-  useEffect(() => {
-    // Always fetch saved on mount and tab switch to keep state fresh
-    if (tab === 'saved') setSavedLoading(true)
+  const refreshApplications = () => {
     fetchSaved()
       .then((d) => {
         setSavedOpps(d)
         setSavedIds(new Set(d.map(o => o.id)))
       })
       .catch(() => {})
-      .finally(() => { if (tab === 'saved') setSavedLoading(false) })
+    fetchApplied()
+      .then((d) => {
+        setAppliedOpps(d)
+        setAppliedIds(new Set(d.map(o => o.id)))
+      })
+      .catch(() => {})
+  }
+
+  useEffect(() => {
+    // Always fetch saved/applied on mount and tab switch to keep state fresh
+    if (tab === 'saved') setSavedLoading(true)
+    refreshApplications()
+    if (tab === 'saved') setSavedLoading(false)
     if (tab === 'recent') {
       setRecentLoading(true)
       fetchRecent(12)
@@ -116,7 +128,7 @@ export default function Dashboard() {
         {[
           { label: 'Schemes found', value: recos.length, color: 'from-blue-600 to-indigo-600' },
           { label: t('saved'), value: savedOpps.length || '—', color: 'from-yellow-500 to-orange-500' },
-          { label: t('applied'), value: '—', color: 'from-green-500 to-emerald-600' },
+          { label: t('applied'), value: appliedOpps.length || '—', color: 'from-green-500 to-emerald-600' },
         ].map(({ label, value, color }) => (
           <div key={label} className="card text-center">
             <div className={`text-2xl font-bold bg-gradient-to-r ${color} bg-clip-text text-transparent`}>{value}</div>
@@ -183,7 +195,9 @@ export default function Dashboard() {
             <RecoCard 
               key={opp.id} 
               opp={opp} 
-              initialSaved={savedIds.has(opp.id)} 
+              initialSaved={savedIds.has(opp.id)}
+              initialApplied={appliedIds.has(opp.id)}
+              onApplied={refreshApplications}
             />
           ))}
         </div>

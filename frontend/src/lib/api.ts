@@ -70,6 +70,11 @@ export const fetchSaved = () =>
     r.data.filter(a => a.status === 'saved').map(a => a.opportunity)
   )
 
+export const fetchApplied = () =>
+  api.get<{ opportunity: Opportunity; status: string }[]>('/profile/applications').then((r) => 
+    r.data.filter(a => a.status === 'applied').map(a => a.opportunity)
+  )
+
 export const saveOpportunity = (id: string) =>
   api.post('/profile/applications', { opportunity_id: id, status: 'saved' }).then((r) => r.data)
 

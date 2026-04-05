@@ -28,9 +28,10 @@ interface RecoCardProps {
   opp: Opportunity
   initialSaved?: boolean
   initialApplied?: boolean
+  onApplied?: () => void
 }
 
-export default function RecoCard({ opp, initialSaved = false, initialApplied = false }: RecoCardProps) {
+export default function RecoCard({ opp, initialSaved = false, initialApplied = false, onApplied }: RecoCardProps) {
   const { t } = useTranslation()
   const { lang, token } = useUserStore()
   const [saved, setSaved] = useState(initialSaved)
@@ -77,6 +78,7 @@ export default function RecoCard({ opp, initialSaved = false, initialApplied = f
     try {
       await markApplied(opp.id)
       setApplied(true)
+      onApplied?.()  // notify parent to refresh the applied count
     } catch {
       // silently fail
     } finally {
